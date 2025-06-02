@@ -1,0 +1,311 @@
+/* src/pages/EventsList.module.css */
+.eventsContainer {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .filterButton, .sortButton, .createButton {
+    background-color: #b58325;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .createButton {
+    background-color: #4CAF50;
+  }
+  
+  .sortContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sortDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+  }
+  
+  .sortOption {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .sortOption:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .sortOption.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+  }
+  
+  .eventsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .eventCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+  }
+  
+  .eventImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .eventContent {
+    padding: 15px;
+  }
+  
+  .eventTitle {
+    margin: 0 0 10px 0;
+  }
+  
+  .eventDescription {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .eventDetail {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .cardActions {
+    margin-top: 15px;
+  }
+  
+  .joinButton {
+    width: 100%;
+    background-color: #b58325;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .adminActions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .editButton, .deleteButton {
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .editButton {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  .deleteButton {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Modal styles */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .formRow {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .formRow .formGroup {
+    flex: 1;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .formGroup input,
+  .formGroup textarea,
+  .formGroup select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .formGroup textarea {
+    height: 100px;
+  }
+  
+  .modalButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .submitButton, .cancelButton {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submitButton {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .cancelButton {
+    background-color: #f44336;
+    color: white;
+  }
+  /* Enhanced styles for the filter button and dropdown */
+.filterContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .filterButton {
+    background-color: #b58325;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .filterDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    overflow: hidden;
+  }
+  
+  .filterOption {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .filterOption:last-child {
+    border-bottom: none;
+  }
+  
+  .filterOption:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .filterOption.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  /* Add these styles to your EventsList.module.css file */
+
+/* Style for the Joined button */
+.joinButton.joined {
+  background-color: #c3ad2f; /* Green background */
+  color: white;
+  cursor: default; /* Change cursor since it's disabled */
+  opacity: 0.9; /* Slightly more transparent than the active button */
+}
+
+.joinButton.joined:hover {
+  background-color: #4CAF50; /* Keep the same color on hover */
+  opacity: 0.9; /* Keep the same opacity on hover */
+}
+
+/* Optional: You might want to add a checkmark icon to the Joined button */
+.joinButton.joined::before {
+  content: "✓ "; /* Unicode checkmark symbol */
+  margin-right: 4px;
+}

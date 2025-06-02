@@ -1,0 +1,218 @@
+/* EventsPage.module.css */
+
+.eventsContent {
+  flex: 1;
+  padding: 20px 30px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.pageActions {
+  display: flex;
+  gap: 10px;
+}
+
+.createButton, .filterButton, .sortButton {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.createButton {
+  background-color: #b58325;
+  color: white;
+  border: none;
+}
+
+.createButton::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}
+
+.filterButton, .sortButton {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.filterButton::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555'%3E%3Cpath d='M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}
+
+.sortButton::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555'%3E%3Cpath d='M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}
+
+.createButton:hover {
+  background-color: #a07320;
+}
+
+.filterButton:hover, .sortButton:hover {
+  background-color: #e9e9e9;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.eventCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.eventCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.eventImageContainer {
+  height: 180px;
+  overflow: hidden;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.eventTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.eventDescription {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+  margin-bottom: 16px;
+  /* Limit to 3 lines of text */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.eventDetails {
+  margin-top: auto;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+.eventDetail {
+  margin-bottom: 8px;
+  display: flex;
+}
+
+.eventDetailLabel {
+  font-weight: 500;
+  width: 120px;
+  color: #666;
+}
+
+.eventDetailValue {
+  flex: 1;
+}
+
+.eventActions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editButton {
+  padding: 6px 16px;
+  background-color: transparent;
+  color: #b58325;
+  border: 1px solid #b58325;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background-color: rgba(181, 131, 37, 0.1);
+}
+
+.loadingMessage, .errorMessage, .noEventsMessage {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.errorMessage {
+  color: #d32f2f;
+}
+
+/* For responsiveness on smaller screens */
+@media (max-width: 768px) {
+  .eventsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .pageActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
